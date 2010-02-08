@@ -16,6 +16,7 @@
 #
 ################################################################################
 """
-Test suite for :mod:`deployrecipes`.
+Fixtures for the test suite of :mod:`deployrecipes`.
 
 """
+

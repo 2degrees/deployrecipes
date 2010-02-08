@@ -16,6 +16,9 @@
 #
 ################################################################################
 """
-Test suite for :mod:`deployrecipes`.
+Mock PasteDeploy-powered WSGI application.
 
 """
+
+def make_application(global_conf, **local_conf):
+    pass

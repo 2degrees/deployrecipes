@@ -16,9 +16,41 @@
 #
 ################################################################################
 """
-
+Buildout recipes for PasteDeploy.
 
 """
+from logging import getLogger
+
+from zc.buildout import UserError as BuildoutError
+from paste.deploy.loadwsgi import appconfig
+
 
 class ConfvarsRecipe(object):
-    pass
+    """
+    Recipe to load the options from a PasteDeploy config URI into the Buildout
+    parts.
+    
+    """
+    
+    def __init__(self, buildout, name, options):
+        if "config_uri" not in options:
+            raise BuildoutError('PasteDeploy config URI not set in the '
+                                '"config_uri" option')
+        
+        buildout_dir = buildout['buildout']['directory']
+        
+        try:
+            config_variables = appconfig(options['config_uri'], 
+                                         relative_to=buildout_dir)
+        except (LookupError, ValueError, OSError), exc:
+            raise BuildoutError("Could not load variables from part '%s': %s"
+                                % (name, exc))
+        else:
+            options.update(config_variables)
+    
+    def install(self):
+        pass
+    
+    def update(self):
+        pass
+

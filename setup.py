@@ -49,8 +49,8 @@ setup(name="deployrecipes",
       packages=find_packages(exclude=["tests"]),
       package_data={
         '': ["VERSION.txt", "README.txt"],
-        'docs': ["Makefile", "source/*"]},
-      exclude_package_data={"": ["README.txt", "docs"]},
+        },
+      exclude_package_data={"": ["README.txt"]},
       include_package_data=True,
       zip_safe=False,
       tests_require = [
@@ -58,12 +58,12 @@ setup(name="deployrecipes",
         "coverage",
         ],
       install_requires=[
+        "zc.buildout >= 1.4.0",
         "PasteDeploy >= 1.3.3",
-        "setuptools",
         ],
       test_suite="nose.collector",
       entry_points = """\
         [zc.buildout]
-        confvars = deployrecipes.confvars:ConfvarsRecipe
+        confvars = deployrecipes:ConfvarsRecipe
       """
       )
