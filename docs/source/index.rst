@@ -89,3 +89,12 @@ Links
   use it and find it useful!
 - `Development Web site <http://bitbucket.org/2degrees/deployrecipes/>`_:
   The place to report bugs, request features and get the source code.
+
+
+More information
+================
+
+.. toctree::
+   :maxdepth: 2
+   
+   changelog

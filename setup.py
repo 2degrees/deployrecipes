@@ -22,12 +22,13 @@ from setuptools import setup, find_packages
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, "README.txt")).read()
+CHANGELOG = open(os.path.join(here, "docs", "source", "changelog.rst")).read()
 version = open(os.path.join(here, "VERSION.txt")).readline().rstrip()
 
 setup(name="deployrecipes",
       version=version,
       description="Buildout recipes for PasteDeploy",
-      long_description=README,
+      long_description="\n".join((README, CHANGELOG)),
       classifiers=[
         "Development Status :: 2 - Pre-Alpha",
         "Environment :: Web Environment",
