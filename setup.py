@@ -49,8 +49,9 @@ setup(name="deployrecipes",
       packages=find_packages(exclude=["tests"]),
       package_data={
         '': ["VERSION.txt", "README.txt"],
+        'docs': ["Makefile", "source/*"],
         },
-      exclude_package_data={"": ["README.txt"]},
+      exclude_package_data={"": ["README.txt", "docs"]},
       include_package_data=True,
       zip_safe=False,
       tests_require = [
