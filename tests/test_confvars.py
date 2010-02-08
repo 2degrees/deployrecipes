@@ -28,7 +28,9 @@ from deployrecipes import ConfvarsRecipe
 
 
 HERE = path.dirname(__file__)
+
 ABS_CONFIG_PATH = path.join(HERE, "fixture", "wsgiapp.ini")
+CONFIG_URI = "config:%s" % ABS_CONFIG_PATH
 
 BUILDOUT_DICT = {'buildout': {'directory': path.join(HERE, "fixture")}}
 
@@ -38,23 +40,30 @@ class TestConfvarsRecipe(object):
     
     def test_no_config_uri(self):
         """Parts must define the "config_uri" option."""
-        assert_raises(UserError, ConfvarsRecipe, {}, "abc", {})
+        assert_raises(UserError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
+                      {'eggs': "foo"})
+    
+    def test_no_eggs(self):
+        """Parts must define the "eggs" option."""
+        assert_raises(UserError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
+                      {'config_uri': CONFIG_URI})
     
     def test_bad_config_uri(self):
         """Bad "config_uri" values are caught on instantiation."""
         # URI with no scheme:
         assert_raises(UserError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
-                      {'config_uri': ABS_CONFIG_PATH})
+                      {'config_uri': ABS_CONFIG_PATH, 'eggs': "foo"})
         # URI with scheme, but non-existing path:
         assert_raises(UserError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
-                      {'config_uri': "config:%s/nonexisting" % HERE})
+                      {'config_uri': "config:%s/nonexisting" % HERE,
+                       'eggs': "foo"})
     
     def test_right_config_uri(self):
         """
         The options in the config URI must be loaded into the parts' options.
         
         """
-        options = {'config_uri': "config:%s" % ABS_CONFIG_PATH}
+        options = {'config_uri': CONFIG_URI, 'eggs': "foo"}
         ConfvarsRecipe(BUILDOUT_DICT, "abc", options)
         # The new options must have been loaded:
         ok_(len(options) > 1)
@@ -63,7 +72,7 @@ class TestConfvarsRecipe(object):
     
     def test_relative_conf(self):
         """Config URIs are relative to the Buildout directory by default."""
-        options = {'config_uri': "config:wsgiapp.ini"}
+        options = {'config_uri': "config:wsgiapp.ini", 'eggs': "foo"}
         ConfvarsRecipe(BUILDOUT_DICT, "abc", options)
         # The new options must have been loaded:
         ok_(len(options) > 1)
@@ -72,7 +81,7 @@ class TestConfvarsRecipe(object):
     
     def test_installand_update(self):
         """Install and update do nothing."""
-        options = {'config_uri': "config:%s" % ABS_CONFIG_PATH}
+        options = {'config_uri': "config:%s" % ABS_CONFIG_PATH, 'eggs': "foo"}
         recipe = ConfvarsRecipe(BUILDOUT_DICT, "abc", options)
         eq_(recipe.install(), None)
         eq_(recipe.update(), None)

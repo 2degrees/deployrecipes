@@ -36,6 +36,10 @@ class ConfvarsRecipe(object):
         if "config_uri" not in options:
             raise BuildoutError('PasteDeploy config URI not set in the '
                                 '"config_uri" option')
+        if "eggs" not in options:
+            raise BuildoutError('"eggs" option not set in [%s] to the package '
+                                'containing the PasteDeploy application '
+                                'factory' % name)
         
         buildout_dir = buildout['buildout']['directory']
         

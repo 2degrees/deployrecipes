@@ -33,7 +33,7 @@ Say you have the following PasteDeploy config:
     debug = false
     
     [app:main]
-    use = egg:something_here
+    use = egg:yourpackage
     database_name = db1
     database_password = passw0rd
 
@@ -50,6 +50,7 @@ configuration file like the one below:
     [paste_vars]
     use = deployrecipes:confvars
     config_uri = config:/path/to/config.ini
+    eggs = yourpackage
     
     [setup_db]
     use = your_recipe_to_setup_the_database
@@ -66,10 +67,17 @@ Or just:
     [paste_vars]
     use = deployrecipes:confvars
     config_uri = config:/path/to/config.ini
+    eggs = yourpackage
     
     [setup_db]
     <= paste_vars
     use = your_recipe_to_setup_the_database
+
+
+.. attention::
+
+    It's mandatory to set the ``eggs`` option to the package that contains the
+    PasteDeploy application factory! Otherwise you will get import errors.
 
 
 Links
