@@ -19,8 +19,6 @@
 Buildout recipes for PasteDeploy.
 
 """
-from logging import getLogger
-
 from zc.buildout import UserError as BuildoutError
 from paste.deploy.loadwsgi import appconfig
 
