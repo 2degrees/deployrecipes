@@ -48,12 +48,12 @@ configuration file like the one below:
     parts = setup_db
     
     [paste_vars]
-    use = deployrecipes:confvars
+    recipe = deployrecipes:confvars
     config_uri = config:/path/to/config.ini
     eggs = yourpackage
     
     [setup_db]
-    use = your_recipe_to_setup_the_database
+    recipe = your_recipe_to_setup_the_database
     database_name = ${paste_vars:database_name}
     database_password = ${paste_vars:database_password}
 
@@ -65,13 +65,13 @@ Or just:
     parts = setup_db
     
     [paste_vars]
-    use = deployrecipes:confvars
+    recipe = deployrecipes:confvars
     config_uri = config:/path/to/config.ini
     eggs = yourpackage
     
     [setup_db]
     <= paste_vars
-    use = your_recipe_to_setup_the_database
+    recipe = your_recipe_to_setup_the_database
 
 
 .. attention::
