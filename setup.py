@@ -62,6 +62,7 @@ setup(name="deployrecipes",
       install_requires=[
         "zc.buildout >= 1.4.0",
         "PasteDeploy >= 1.3.3",
+        "Paste",
         ],
       test_suite="nose.collector",
       entry_points = """\
