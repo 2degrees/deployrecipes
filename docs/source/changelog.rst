@@ -5,7 +5,7 @@ Version 1.0 Alpha 2 (2010-02-10)
 --------------------------------
 
 - Fixed typos in the documentation.
-- Added `Paste itself<http://pythonpaste.org/>`_ as a dependency, to avoid
+- Added `Paste itself <http://pythonpaste.org/>`_ as a dependency, to avoid
   import errors.
 
 
