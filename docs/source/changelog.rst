@@ -1,6 +1,12 @@
 **PasteDeploy** releases
 ========================
 
+Version 1.0 Alpha 3 (2010-02-10)
+--------------------------------
+
+- Fixed packaging problem, where the module was not included in the distribution.
+
+
 Version 1.0 Alpha 2 (2010-02-10)
 --------------------------------
 

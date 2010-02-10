@@ -47,7 +47,7 @@ setup(name="deployrecipes",
       author_email="2degrees-dev@googlegroups.com",
       url="http://bitbucket.org/2degrees/deployrecipes/",
       license="BSD (http://dev.2degreesnetwork.com/p/2degrees-license.html)",
-      packages=find_packages(exclude=["tests"]),
+      py_modules=["deployrecipes"],
       package_data={
         '': ["VERSION.txt", "README.txt"],
         'docs': ["Makefile", "source/*"],
