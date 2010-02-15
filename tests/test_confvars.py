@@ -19,6 +19,7 @@
 Test suite for the :class:`ConfvarsRecipe`.
 
 """
+from sys import executable
 from os import path
 
 from nose.tools import eq_, ok_, assert_raises
@@ -32,7 +33,23 @@ HERE = path.dirname(__file__)
 ABS_CONFIG_PATH = path.join(HERE, "fixture", "wsgiapp.ini")
 CONFIG_URI = "config:%s" % ABS_CONFIG_PATH
 
-BUILDOUT_DICT = {'buildout': {'directory': path.join(HERE, "fixture")}}
+BUILDOUT_DICT = {
+    'buildout': {
+        'python': "python",
+        'directory': path.join(HERE, "fixture"),
+        #''bin-directory': path.join(HERE, "fixture", "bin"),
+        'eggs-directory': path.join(HERE, "fixture", "eggs"),
+        'develop-eggs-directory': "",
+        'offline': "true",
+        },
+    'python': {
+        'executable': executable,
+        },
+    }
+
+# We need to test that the distributions are added, but to avoid depending on
+# a package we don't really need:
+MOCK_DIST = "nose"
 
 
 class TestConfvarsRecipe(object):
@@ -41,7 +58,7 @@ class TestConfvarsRecipe(object):
     def test_no_config_uri(self):
         """Parts must define the "config_uri" option."""
         assert_raises(UserError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
-                      {'eggs': "foo"})
+                      {'factory_distribution': MOCK_DIST})
     
     def test_no_eggs(self):
         """Parts must define the "eggs" option."""
@@ -52,18 +69,19 @@ class TestConfvarsRecipe(object):
         """Bad "config_uri" values are caught on instantiation."""
         # URI with no scheme:
         assert_raises(UserError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
-                      {'config_uri': ABS_CONFIG_PATH, 'eggs': "foo"})
+                      {'config_uri': ABS_CONFIG_PATH,
+                       'factory_distribution': MOCK_DIST})
         # URI with scheme, but non-existing path:
         assert_raises(UserError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
                       {'config_uri': "config:%s/nonexisting" % HERE,
-                       'eggs': "foo"})
+                       'factory_distribution': MOCK_DIST})
     
     def test_right_config_uri(self):
         """
         The options in the config URI must be loaded into the parts' options.
         
         """
-        options = {'config_uri': CONFIG_URI, 'eggs': "foo"}
+        options = {'config_uri': CONFIG_URI, 'factory_distribution': MOCK_DIST}
         ConfvarsRecipe(BUILDOUT_DICT, "abc", options)
         # The new options must have been loaded:
         ok_(len(options) > 1)
@@ -72,16 +90,22 @@ class TestConfvarsRecipe(object):
     
     def test_relative_conf(self):
         """Config URIs are relative to the Buildout directory by default."""
-        options = {'config_uri': "config:wsgiapp.ini", 'eggs': "foo"}
+        options = {
+            'config_uri': "config:wsgiapp.ini",
+            'factory_distribution': MOCK_DIST,
+            }
         ConfvarsRecipe(BUILDOUT_DICT, "abc", options)
         # The new options must have been loaded:
         ok_(len(options) > 1)
         eq_(options['foo'], "bar")
         eq_(options['baz'], "foo")
     
-    def test_installand_update(self):
+    def test_install_and_update(self):
         """Install and update do nothing."""
-        options = {'config_uri': "config:%s" % ABS_CONFIG_PATH, 'eggs': "foo"}
+        options = {
+            'config_uri': "config:%s" % ABS_CONFIG_PATH,
+            'factory_distribution': MOCK_DIST,
+            }
         recipe = ConfvarsRecipe(BUILDOUT_DICT, "abc", options)
         eq_(recipe.install(), None)
         eq_(recipe.update(), None)

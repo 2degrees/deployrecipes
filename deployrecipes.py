@@ -20,6 +20,9 @@ Buildout recipes for PasteDeploy.
 
 """
 from zc.buildout import UserError as BuildoutError
+from zc.recipe.egg import Eggs
+from pkg_resources import working_set
+
 from paste.deploy.loadwsgi import appconfig
 
 
@@ -34,13 +37,22 @@ class ConfvarsRecipe(object):
         if "config_uri" not in options:
             raise BuildoutError('PasteDeploy config URI not set in the '
                                 '"config_uri" option')
+        
+        # Loading the distribution:
+        distribution = options.pop("factory_distribution", None)
+        if not distribution:
+            raise BuildoutError('"factory_distribution" option not set in [%s] '
+                                'to the package containing the PasteDeploy '
+                                'application factory' % name)
         if "eggs" not in options:
-            raise BuildoutError('"eggs" option not set in [%s] to the package '
-                                'containing the PasteDeploy application '
-                                'factory' % name)
+            # If we don't set the "eggs" option, it will take the part name:
+            options['eggs'] = ""
+        ws = Eggs(buildout, name, options).working_set([distribution])[1]
+        for dist in ws:
+            working_set.add(dist)
         
+        # Loading the variables in the PasteDeploy config:
         buildout_dir = buildout['buildout']['directory']
-        
         try:
             config_variables = appconfig(options['config_uri'], 
                                          relative_to=buildout_dir)

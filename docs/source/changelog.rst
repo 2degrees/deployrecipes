@@ -1,6 +1,16 @@
 **PasteDeploy** releases
 ========================
 
+Version 1.0 Alpha 4 (2010-02-15)
+--------------------------------
+
+- Renamed the ``eggs`` option to ``factory_distribution`` in the ``confvars``
+  recipe.
+- Made the ``confvars`` recipe really load the distribution that provides the
+  PasteDeploy application factory. Thanks to Jim Fulton for explaining how to
+  do it!
+
+
 Version 1.0 Alpha 3 (2010-02-10)
 --------------------------------
 

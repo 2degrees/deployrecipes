@@ -50,7 +50,7 @@ configuration file like the one below:
     [paste_vars]
     recipe = deployrecipes:confvars
     config_uri = config:/path/to/config.ini
-    eggs = yourpackage
+    factory_distribution = yourpackage
     
     [setup_db]
     recipe = your_recipe_to_setup_the_database
@@ -67,17 +67,22 @@ Or just:
     [paste_vars]
     recipe = deployrecipes:confvars
     config_uri = config:/path/to/config.ini
-    eggs = yourpackage
+    factory_distribution = yourpackage
     
     [setup_db]
     <= paste_vars
     recipe = your_recipe_to_setup_the_database
 
 
+This recipe internally uses `zc.recipe.egg <http://pypi.python.org/pypi/zc.recipe.egg>`_,
+so you could use any of its options if you need it.
+
+
 .. attention::
 
-    It's mandatory to set the ``eggs`` option to the package that contains the
-    PasteDeploy application factory! Otherwise you will get import errors.
+    It's mandatory to set the ``factory_distribution`` option to the package
+    that provides the PasteDeploy application factory! Otherwise you will get
+    import errors (``DistributionNotFound``).
 
 
 Links
