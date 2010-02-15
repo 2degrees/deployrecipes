@@ -1,6 +1,12 @@
 **DeployRecipes** releases
 ==========================
 
+Version 1.0 Alpha 5 (2010-02-15)
+--------------------------------
+
+- Lowered the required version of *zc.recipe.egg* to v1.1.
+
+
 Version 1.0 Alpha 4 (2010-02-15)
 --------------------------------
 
