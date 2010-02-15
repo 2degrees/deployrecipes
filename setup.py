@@ -61,7 +61,7 @@ setup(name="deployrecipes",
         ],
       install_requires=[
         "zc.buildout >= 1.4.0",
-        "zc.recipe.egg >= 1.2.2",
+        "zc.recipe.egg >= 1.1.0",
         "PasteDeploy >= 1.3.3",
         "Paste",
         ],
