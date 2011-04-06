@@ -1,0 +1,6 @@
+include README.txt
+include VERSION.txt
+include MANIFEST.in
+
+recursive-include docs/ *
+recursive-exclude tests/ *
