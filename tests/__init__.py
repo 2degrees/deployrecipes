@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 ################################################################################
 #
-# Copyright (c) 2010, 2degrees Limited.
+# Copyright (c) 2010-2011, 2degrees Limited.
 # All Rights Reserved.
 #
 # This file is part of deployrecipes:
-# <http://bitbucket.org/2degrees/deployrecipes>.
+# <http://packages.python.org/deployrecipes/>.
 #
 # deployrecipes is subject to the provisions of the BSD license that accompanies
 # that distribution. An incomplete copy of that text is also available at
