@@ -41,7 +41,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'DeployRecipes'
-copyright = u'2010, 2degrees Limited'
+copyright = u'2010-2011, 2degrees Limited'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the

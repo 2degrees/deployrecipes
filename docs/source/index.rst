@@ -89,10 +89,10 @@ Links
 =====
 
 - `Online documentation <http://packages.python.org/deployrecipes/>`_.
-- `Support mailing list <http://groups.google.com/group/2degrees-dev/>`_.
+- `Support mailing list <http://groups.google.com/group/2degrees-floss/>`_.
 - `Ohloh entry <https://www.ohloh.net/p/deployrecipes>`_ -- Vote for it if you
   use it and find it useful!
-- `Development Web site <http://bitbucket.org/2degrees/deployrecipes/>`_:
+- `Development Web site <https://github.com/2degrees/deployrecipes/>`_:
   The place to report bugs, request features and get the source code.
 
 
