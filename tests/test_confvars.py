@@ -36,11 +36,12 @@ CONFIG_URI = "config:%s" % ABS_CONFIG_PATH
 BUILDOUT_DICT = {
     'buildout': {
         'python': "python",
+        'find-links': "http://example.org/dist/",
         'directory': path.join(HERE, "fixture"),
-        #''bin-directory': path.join(HERE, "fixture", "bin"),
         'eggs-directory': path.join(HERE, "fixture", "eggs"),
         'develop-eggs-directory': "",
         'offline': "true",
+        'allow-hosts': "*",
         },
     'python': {
         'executable': executable,
@@ -72,7 +73,7 @@ class TestConfvarsRecipe(object):
                       {'config_uri': ABS_CONFIG_PATH,
                        'factory_distribution': MOCK_DIST})
         # URI with scheme, but non-existing path:
-        assert_raises(UserError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
+        assert_raises(IOError, ConfvarsRecipe, BUILDOUT_DICT, "abc",
                       {'config_uri': "config:%s/nonexisting" % HERE,
                        'factory_distribution': MOCK_DIST})
     

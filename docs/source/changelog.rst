@@ -4,6 +4,7 @@
 Version 1.0 Release Candidate 1 (2011-04-06)
 --------------------------------------------
 
+- Updated minimum version of ``zc.recipe.egg`` to 1.2.2.
 
 
 Version 1.0 Alpha 5 (2010-02-15)
