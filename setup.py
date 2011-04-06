@@ -30,7 +30,7 @@ setup(name="deployrecipes",
       description="Buildout recipes for PasteDeploy",
       long_description="\n".join((README, CHANGELOG)),
       classifiers=[
-        "Development Status :: 2 - Pre-Alpha",
+        "Development Status :: 5 - Production/Stable",
         "Environment :: Web Environment",
         "Framework :: Buildout",
         "Framework :: Paste",
