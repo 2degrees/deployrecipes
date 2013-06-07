@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ################################################################################
 #
-# Copyright (c) 2010-2011, 2degrees Limited.
+# Copyright (c) 2010-2011, 2013, 2degrees Limited.
 # All Rights Reserved.
 #
 # This file is part of deployrecipes:
@@ -108,5 +108,5 @@ class TestConfvarsRecipe(object):
             'factory_distribution': MOCK_DIST,
             }
         recipe = ConfvarsRecipe(BUILDOUT_DICT, "abc", options)
-        eq_(recipe.install(), None)
+        eq_(recipe.install(), ())
         eq_(recipe.update(), None)

@@ -63,7 +63,7 @@ class ConfvarsRecipe(object):
             options.update(config_variables)
     
     def install(self):
-        pass
+        return ()
     
     def update(self):
         pass
