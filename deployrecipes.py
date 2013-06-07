@@ -15,10 +15,6 @@
 # MERCHANTABILITY, AGAINST INFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE.
 #
 ################################################################################
-"""
-Buildout recipes for PasteDeploy.
-
-"""
 from zc.buildout import UserError as BuildoutError
 from zc.recipe.egg import Eggs
 from pkg_resources import working_set

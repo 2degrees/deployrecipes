@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ################################################################################
 #
-# Copyright (c) 2010-2011, 2degrees Limited.
+# Copyright (c) 2010-2011, 2013, 2degrees Limited.
 # All Rights Reserved.
 #
 # This file is part of deployrecipes:
@@ -18,7 +18,7 @@
 import os
 
 # Setuptools is obviously available, so there's no need to use ez_setup:
-from setuptools import setup, find_packages
+from setuptools import setup
 
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, "README.txt")).read()
