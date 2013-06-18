@@ -88,8 +88,6 @@ class TestConfvarsRecipe(object):
         ok_(len(options) > 1)
         eq_(options['foo'], "bar")
         eq_(options['baz'], "foo")
-        # But global_conf must've been excluded
-        ok_('debug' not in options)
     
     def test_relative_conf(self):
         """Config URIs are relative to the Buildout directory by default."""

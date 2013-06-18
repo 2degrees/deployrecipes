@@ -1,14 +1,12 @@
 **DeployRecipes** releases
 ==========================
 
-Version 1.0 Release Candidate 2 (UNRELEASED)
+Version 1.0 Release Candidate 2 (2013-06-07)
 --------------------------------------------
 
 - Made ``install`` method on recipe return an empty tuple to tell Buildout that
   no file was updated.
 - Exposed method ``get_config_variables`` on recipe to allow for sub-classing.
-- Excluded options in ``global_conf`` from the options made available to other
-  recipes.
 
 
 Version 1.0 Release Candidate 1 (2011-04-06)
