@@ -74,4 +74,6 @@ class ConfvarsRecipe(object):
                     exc,
                     ),
                 )
-        return config_variables
+        
+        local_conf = config_variables.local_conf
+        return local_conf
