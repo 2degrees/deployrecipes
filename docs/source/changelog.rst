@@ -1,7 +1,7 @@
 **DeployRecipes** releases
 ==========================
 
-Version 1.0 Release Candidate 2 (UNRELEASED)
+Version 1.0 Release Candidate 2 (2013-06-19)
 --------------------------------------------
 
 - Made ``install`` method on recipe return an empty tuple to tell Buildout that
