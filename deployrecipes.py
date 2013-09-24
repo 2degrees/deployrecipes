@@ -51,7 +51,7 @@ class ConfvarsRecipe(object):
 
         # Loading the variables in the PasteDeploy config:
         buildout_dir = buildout['buildout']['directory']
-        config_variables = self.get_config_variables(
+        config_variables = self._get_config_variables(
             options['config_uri'],
             buildout_dir,
             name,
@@ -65,7 +65,7 @@ class ConfvarsRecipe(object):
         pass
 
     @classmethod
-    def get_config_variables(cls, config_uri, buildout_dir, part_name):
+    def _get_config_variables(cls, config_uri, buildout_dir, part_name):
         try:
             app_config = appconfig(config_uri, relative_to=buildout_dir)
         except (LookupError, ValueError, OSError), exc:
