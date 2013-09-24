@@ -1,6 +1,18 @@
 **DeployRecipes** releases
 ==========================
 
+
+Version 1.0 Final (2013-09-24)
+------------------------------
+
+Minor internal changes made:
+
+- Converted :meth:`ConfvarsRecipe.get_config_variables` to a protected method.
+- Exposed static method
+  :meth:`ConfvarsRecipe.get_config_variables_from_app_config` to allow for
+  sub-classing.
+
+
 Version 1.0 Release Candidate 2 (2013-06-19)
 --------------------------------------------
 
