@@ -6,8 +6,9 @@ Buildout recipes for PasteDeploy
 
 .. topic:: Overview
 
-    **DeployRecipes** implements some `Buildout <http://www.buildout.org/>`_
-    recipes for `PasteDeploy <http://pythonpaste.org/deploy/>`_.
+    **DeployRecipes** aims to be a collection of
+    `Buildout <http://www.buildout.org/>`_ recipes to integrate `PasteDeploy
+    <http://pythonpaste.org/deploy/>`_.
 
 The recipes
 ===========
