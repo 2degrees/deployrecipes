@@ -1,6 +1,12 @@
 **DeployRecipes** releases
 ==========================
 
+Version 1.0.1 (unreleased)
+--------------------------
+
+- Included changelog file in distribution because it's needed by ``setup.py``.
+  The previous approach stopped working in newer versions of setuptools.
+
 
 Version 1.0 Final (2013-09-24)
 ------------------------------

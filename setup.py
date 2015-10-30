@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 ################################################################################
 #
-# Copyright (c) 2010-2011, 2013, 2degrees Limited.
+# Copyright (c) 2010-2015, 2degrees Limited.
 # All Rights Reserved.
 #
 # This file is part of deployrecipes:
@@ -48,11 +48,6 @@ setup(name="deployrecipes",
       url="http://packages.python.org/deployrecipes/",
       license="BSD (http://dev.2degreesnetwork.com/p/2degrees-license.html)",
       py_modules=["deployrecipes"],
-      package_data={
-        '': ["VERSION.txt", "README.txt"],
-        'docs': ["Makefile", "source/*"],
-        },
-      include_package_data=True,
       tests_require = [
         "nose >= 0.11.1",
         "coverage",
